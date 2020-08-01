@@ -63,3 +63,7 @@ with open(filename, 'w') as csvfile:
         
     # writing the fields  
     csvwriter.writerow(fields)
+    
+     # writing the data rows  
+    csvwriter.writerows(rows) 
+
