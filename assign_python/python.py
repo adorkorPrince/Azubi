@@ -47,4 +47,19 @@ wage = totalhr * 5
 
 print('Nana, you have worked: {}'.format (hsot))
 print('Nana, you have made a total wage of: {} dollas'.format(wage))
-
+# field names  
+fields = ['Hours Worked', 'Total Wages']  
+    
+# data rows of csv file  
+rows = [ [hsot, wage ]]  
+    
+# name of csv file  
+filename = "nana_consulting.csv"
+    
+# writing to csv file  
+with open(filename, 'w') as csvfile:  
+    # creating a csv writer object  
+    csvwriter = csv.writer(csvfile)  
+        
+    # writing the fields  
+    csvwriter.writerow(fields)
