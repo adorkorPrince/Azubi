@@ -1,10 +1,10 @@
+# import relevent pakages 
 import datetime
-
 import re
 import csv
 
 
-
+# Accept date input from user
 valid = False
 while not valid:
     try:
@@ -16,6 +16,7 @@ while not valid:
     except ValueError:
         print("Incorrect data format, should be YYYY-MM-DD"))
 
+# Accept time input from user
 s_valid  = False
 while not s_valid:
     try:
@@ -32,26 +33,29 @@ while not s_valid:
             
             start_datetime = datetime.datetime.combine(date1, time1)
 
+# Generate current system date and time
 import datetime
-
 current_datetime = datetime.datetime.now()
-
 hsot = current_datetime - start_datetime
 
+# Convert days to hours and multiple by the dollar value
 sdays = hsot.seconds//3600
 mdays = (hsot.days) * 24
 
 totalhr = sdays + mdays
-
 wage = totalhr * 5
 
 print('Nana, you have worked: {}'.format (hsot))
 print('Nana, you have made a total wage of: {} dollas'.format(wage))
+
+
+##### Save the input and output from the program into a csv file.
+
 # field names  
-fields = ['Hours Worked', 'Total Wages']  
+fields = ['Date_Time of project start','Hours Worked', 'Total Wages']  
     
 # data rows of csv file  
-rows = [ [hsot, wage ]]  
+rows = [ [start_datetime,hsot, wage ]]  
     
 # name of csv file  
 filename = "nana_consulting.csv"
@@ -62,8 +66,9 @@ with open(filename, 'w') as csvfile:
     csvwriter = csv.writer(csvfile)  
         
     # writing the fields  
-    csvwriter.writerow(fields)
-    
-     # writing the data rows  
+    csvwriter.writerow(fields)  
+        
+    # writing the data rows  
     csvwriter.writerows(rows) 
+
 
