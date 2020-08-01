@@ -14,3 +14,4 @@ while not valid:
         date1 = sdate_obj.date()
         valid = True
     except ValueError:
+        print("Incorrect data format, should be YYYY-MM-DD"))
