@@ -29,3 +29,22 @@ while not s_valid:
                 s_valid = True
     except ValueError:
             print("Incorrect time format, should be H:M:S")
+            
+            start_datetime = datetime.datetime.combine(date1, time1)
+
+import datetime
+
+current_datetime = datetime.datetime.now()
+
+hsot = current_datetime - start_datetime
+
+sdays = hsot.seconds//3600
+mdays = (hsot.days) * 24
+
+totalhr = sdays + mdays
+
+wage = totalhr * 5
+
+print('Nana, you have worked: {}'.format (hsot))
+print('Nana, you have made a total wage of: {} dollas'.format(wage))
+
